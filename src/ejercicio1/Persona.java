@@ -130,6 +130,13 @@ public class Persona {
 					+ edad + ", fecha de nacimiento: " + fechaNacimiento + ", género: " + genero + ", dirección: "
 					+ direccion + ", teléfono: " + telefono + ", email: " + email;
 		}
+		
+		public static void exVerificarDNI(String dni) throws ExVerificarDni
+		{	
+			if(dni == null || !(dni.matches("[0-9]{8}"))) {
+				throw new ExVerificarDni();
+			}
+		}
 
 
 }
