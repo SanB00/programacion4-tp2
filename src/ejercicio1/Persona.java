@@ -131,9 +131,11 @@ public class Persona {
 					+ direccion + ", teléfono: " + telefono + ", email: " + email;
 		}
 		
-		public static void exVerificarDNI(String dni) throws ExVerificarDni{
-		
-		
+		public static void exVerificarDNI(String dni) throws ExVerificarDni
+		{	
+			if(dni == null || !(dni.matches("[0-9]{8}"))) {
+				throw new ExVerificarDni();
+			}
 		}
 
 
