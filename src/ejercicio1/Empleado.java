@@ -2,54 +2,60 @@ package ejercicio1;
 
 import java.time.LocalDate;
 
-public class Empleado extends Persona {
-	
-	   // Atributos
+public class Empleado extends Persona implements Comparable<Empleado> {
 
-		private final int legajo;
-		private String puesto;
-		
-		private static int contLegajo = 999;
-		
-		// Constructores
-	
-		public Empleado() {
-			super();
-			legajo = 0;
-			puesto = " ";
-		}
+    // Atributos
 
-		public Empleado(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero, String direccion, String telefono, String email, String puesto) 
-		{
-			super(dni, nombre, apellido, fechaNacimiento, genero, direccion, telefono, email);
-			this.puesto = puesto;
-			legajo = ++contLegajo;
-		}
-		
-		// Metodo
+    private final int legajo;
+    private String puesto;
 
-		public static int devuelveProximoLegajo() {
-			return contLegajo + 1;
-		}
+    private static int contLegajo = 999;
 
-		// Getters y Setters
-		public int getLegajo() {
-			return legajo;
-		}
+    // Constructores
 
-		public String getPuesto() {
-			return puesto;
-		}
+    public Empleado() {
+        super();
+        legajo = 0;
+        puesto = " ";
+    }
 
-		public void setPuesto(String puesto) {
-			this.puesto = puesto;
-		}
+    public Empleado(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero,
+            String direccion, String telefono, String email, String puesto) {
+        super(dni, nombre, apellido, fechaNacimiento, genero, direccion, telefono, email);
+        this.puesto = puesto;
+        legajo = ++contLegajo;
+    }
 
-		// ToString
+    // Metodo
 
-		@Override
-		public String toString() {
-			return "EMPLEADO legajo: " + legajo + ", puesto: " + puesto + " | " + super.toString();
-		}
+    public static int devuelveProximoLegajo() {
+        return contLegajo + 1;
+    }
+
+    // Getters y Setters
+    public int getLegajo() {
+        return legajo;
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+    // ToString
+
+    @Override
+    public String toString() {
+        return "EMPLEADO legajo: " + legajo + ", puesto: " + puesto + " | " + super.toString();
+    }
+
+    @Override
+    public int compareTo(Empleado o) {
+        return Integer.compare(this.legajo, o.legajo);
+
+    }
 
 }
