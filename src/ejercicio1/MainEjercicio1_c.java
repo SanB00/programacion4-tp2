@@ -8,6 +8,7 @@ public class MainEjercicio1_c {
 
     public static void main(String[] args) {
         TreeSet<Empleado> listaEmpleados = new TreeSet<Empleado>();
+
         listaEmpleados.add(new Empleado("12345678", "Ana", "Pérez", LocalDate.of(1995, 5, 12), "Femenino",
                 "Calle Falsa 123", "1122334455", "ana.perez@email.com", "Desarrolladora"));
 
