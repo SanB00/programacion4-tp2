@@ -2,141 +2,159 @@ package ejercicio1;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 public class Persona {
-	
-	    // Atributos
 
-		private String dni;
-		private String nombre;
-		private String apellido;
-		private int edad;
-		private LocalDate fechaNacimiento;
-		private String genero;
-		private String direccion;
-		private String telefono;
-		private String email;
+    // Atributos
 
-		// Constructores
+    private String dni;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private LocalDate fechaNacimiento;
+    private String genero;
+    private String direccion;
+    private String telefono;
+    private String email;
 
-		public Persona() {
-			dni = "";
-			nombre = "sin nombre";
-			apellido = "";
-			fechaNacimiento = LocalDate.of(2025, 1, 1);
-			genero = "";
-			direccion = "";
-			telefono = "";
-			email = "";
-			edad = 99;
-		}
+    // Constructores
 
-		public Persona(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero, String direccion, String telefono, String email) 
-		{
-			this.dni = dni;
-			this.nombre = nombre;
-			this.apellido = apellido;
-			this.fechaNacimiento = fechaNacimiento;
-			edad = obtenerEdad(fechaNacimiento);
-			this.genero = genero;
-			this.direccion = direccion;
-			this.telefono = telefono;
-			this.email = email;
-		}
+    public Persona() {
+        dni = "";
+        nombre = "sin nombre";
+        apellido = "";
+        fechaNacimiento = LocalDate.of(2025, 1, 1);
+        genero = "";
+        direccion = "";
+        telefono = "";
+        email = "";
+        edad = 99;
+    }
 
-		//Metodo
-		
-		public int obtenerEdad(LocalDate fechaNacimiento) 
-		{
-			LocalDate fechaActual = LocalDate.now();
-			Period periodo = Period.between(fechaNacimiento, fechaActual);
-			return periodo.getYears();
-		}
-		
-		// Setters & Getters
+    public Persona(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero,
+            String direccion, String telefono, String email) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        edad = obtenerEdad(fechaNacimiento);
+        this.genero = genero;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+    }
 
-		public String getDni() {
-			return dni;
-		}
+    // Metodo
 
-		public void setDni(String dni) {
-			this.dni = dni;
-		}
+    public int obtenerEdad(LocalDate fechaNacimiento) {
+        LocalDate fechaActual = LocalDate.now();
+        Period periodo = Period.between(fechaNacimiento, fechaActual);
+        return periodo.getYears();
+    }
 
-		public String getNombre() {
-			return nombre;
-		}
+    // Setters & Getters
 
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
+    public String getDni() {
+        return dni;
+    }
 
-		public String getApellido() {
-			return apellido;
-		}
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
-		public void setApellido(String apellido) {
-			this.apellido = apellido;
-		}
+    public String getNombre() {
+        return nombre;
+    }
 
-		public int getEdad() {
-			return edad;
-		}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-		public LocalDate getFechaNacimiento() {
-			return fechaNacimiento;
-		}
+    public String getApellido() {
+        return apellido;
+    }
 
-		public void setFechaNacimiento(LocalDate fechaNacimiento) {
-			this.fechaNacimiento = fechaNacimiento;
-		}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-		public String getGenero() {
-			return genero;
-		}
+    public int getEdad() {
+        return edad;
+    }
 
-		public void setGenero(String genero) {
-			this.genero = genero;
-		}
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
 
-		public String getDireccion() {
-			return direccion;
-		}
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
-		public void setDireccion(String direccion) {
-			this.direccion = direccion;
-		}
+    public String getGenero() {
+        return genero;
+    }
 
-		public String getTelefono() {
-			return telefono;
-		}
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
-		public void setTelefono(String telefono) {
-			this.telefono = telefono;
-		}
+    public String getDireccion() {
+        return direccion;
+    }
 
-		public String getEmail() {
-			return email;
-		}
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+    public String getTelefono() {
+        return telefono;
+    }
 
-		// ToString
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-		public String toString() {
-			return "INFORMACIÓN PERSONAL dni: " + dni + ", nombre: " + nombre + ", apellido: " + apellido + ", edad: "
-					+ edad + ", fecha de nacimiento: " + fechaNacimiento + ", género: " + genero + ", dirección: "
-					+ direccion + ", teléfono: " + telefono + ", email: " + email;
-		}
-		
-		public static void exVerificarDNI(String dni) throws ExVerificarDni
-		{	
-			if(dni == null || !(dni.matches("[0-9]{8}"))) {
-				throw new ExVerificarDni();
-			}
-		}
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    // ToString
+
+    public String toString() {
+        return "INFORMACIÓN PERSONAL dni: " + dni + ", nombre: " + nombre + ", apellido: " + apellido + ", edad: "
+                + edad + ", fecha de nacimiento: " + fechaNacimiento + ", género: " + genero + ", dirección: "
+                + direccion + ", teléfono: " + telefono + ", email: " + email;
+    }
+
+    public static void exVerificarDNI(String dni) throws ExVerificarDni {
+        if (dni == null || !(dni.matches("[0-9]{8}"))) {
+            throw new ExVerificarDni();
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(apellido, direccion, dni, edad, email, fechaNacimiento, genero, nombre, telefono);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Persona other = (Persona) obj;
+        return Objects.equals(apellido, other.apellido) && Objects.equals(direccion, other.direccion)
+                && Objects.equals(dni, other.dni) && edad == other.edad && Objects.equals(email, other.email)
+                && Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(genero, other.genero)
+                && Objects.equals(nombre, other.nombre) && Objects.equals(telefono, other.telefono);
+    }
 
 }
