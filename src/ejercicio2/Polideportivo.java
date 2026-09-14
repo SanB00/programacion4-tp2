@@ -36,4 +36,8 @@ public class Polideportivo implements Edificio, IInstalacionDeportiva {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Polideportivo | Nombre: " + nombre + " | Superficie: " + superficie;
+    }
 }
